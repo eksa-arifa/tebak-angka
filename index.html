@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <title>Tebak angka</title>
+  <style>
+    body{
+      background-color: black;
+      text-align: center;
+    }
+    .container{
+      border: 1px solid black;
+      background-color: white;
+      border-radius: 20px;
+    }
+    input{
+      border-radius: 15px;
+      text-align: center;
+    }
+    button{
+      background-color: lightblue;
+      border-radius: 10px;
+      color: white;
+    }
+    button:hover{
+      background-color: blue;
+      color: white;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tebak angka</h1>
+    <p>by eksadev</p>
+    <p>tebak dari angka 1-8</p>
+    <h2 id="computer">??</h2>
+    <input type="number" id="input" /><br /><br />
+    <button id="button">COBA</button><br /><br />
+    <span id="hasil"></span>
+  </div>
+  <script>
+    const computer = document.getElementById('computer')
+    const input = document.getElementById('input')
+    const button = document.getElementById('button')
+    const jawaban = document.getElementById('hasil')
+    
+    var comp = Math.floor(Math.random() * 8 + 1);
+    
+    function hasil(player, comp){
+      if (player == comp) {
+        jawaban.innerText = "anda benar"
+        computer.innerText = comp;
+        input.setAttribute('disabled', true);
+        return;
+      }else{
+        jawaban.innerText = "anda salah"
+        computer.innerText = comp;
+        input.setAttribute('disabled', true);
+        return;
+      }
+    }
+    
+    
+    
+    
+    
+    
+    button.addEventListener('click', function(){
+      hasil(input.value, comp)
+    })
+
+    
+  </script>
+</body>
+</html>
